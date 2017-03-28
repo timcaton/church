@@ -10,14 +10,13 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
-
-import org.example.ws.util.RequestContext;
-import org.joda.time.DateTime;
+//import org.example.ws.util.RequestContext;
+//import org.joda.time.DateTime;
 
 /**
  * The parent class for all transactional persistent entities.
  *
- * @see ReferenceEntity
+ * //@see ReferenceEntity
  *
  * @author Matt Warman
  */
@@ -52,25 +51,25 @@ public class TransactionalEntity implements Serializable {
     /**
      * A reference to the entity or process which created this entity instance.
      */
-    @NotNull
-    private String createdBy;
+//    @NotNull
+//    private String createdBy;
 
     /**
      * The timestamp when this entity instance was created.
      */
-    @NotNull
-    private DateTime createdAt;
+//    @NotNull
+//    private DateTime createdAt;
 
     /**
      * A reference to the entity or process which most recently updated this
      * entity instance.
      */
-    private String updatedBy;
+    //private String updatedBy;
 
     /**
      * The timestamp when this entity instance was most recently updated.
      */
-    private DateTime updatedAt;
+    //private DateTime updatedAt;
 
     public Long getId() {
         return id;
@@ -96,37 +95,37 @@ public class TransactionalEntity implements Serializable {
         this.version = version;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
-    }
+//    public String getCreatedBy() {
+//        return createdBy;
+//    }
+//
+//    public void setCreatedBy(String createdBy) {
+//        this.createdBy = createdBy;
+//    }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
+//    public DateTime getCreatedAt() {
+//        return createdAt;
+//    }
+//
+//    public void setCreatedAt(DateTime createdAt) {
+//        this.createdAt = createdAt;
+//    }
 
-    public DateTime getCreatedAt() {
-        return createdAt;
-    }
+//    public String getUpdatedBy() {
+//        return updatedBy;
+//    }
+//
+//    public void setUpdatedBy(String updatedBy) {
+//        this.updatedBy = updatedBy;
+//    }
 
-    public void setCreatedAt(DateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    public DateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(DateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+//    public DateTime getUpdatedAt() {
+//        return updatedAt;
+//    }
+//
+//    public void setUpdatedAt(DateTime updatedAt) {
+//        this.updatedAt = updatedAt;
+//    }
 
     /**
      * A listener method which is invoked on instances of TransactionalEntity
@@ -137,18 +136,18 @@ public class TransactionalEntity implements Serializable {
      * <code>createdBy</code> value. The <code>createdAt</code> value is set to
      * the current timestamp.
      */
-    @PrePersist
-    public void beforePersist() {
-        String username = RequestContext.getUsername();
-        if (username == null) {
-            throw new IllegalArgumentException(
-                    "Cannot persist a TransactionalEntity without a username "
-                            + "in the RequestContext for this thread.");
-        }
-        setCreatedBy(username);
-
-        setCreatedAt(new DateTime());
-    }
+//    @PrePersist
+//    public void beforePersist() {
+//        String username = RequestContext.getUsername();
+//        if (username == null) {
+//            throw new IllegalArgumentException(
+//                    "Cannot persist a TransactionalEntity without a username "
+//                            + "in the RequestContext for this thread.");
+//        }
+//        setCreatedBy(username);
+//
+//        setCreatedAt(new DateTime());
+//    }
 
     /**
      * A listener method which is invoked on instances of TransactionalEntity
@@ -159,18 +158,18 @@ public class TransactionalEntity implements Serializable {
      * <code>updatedBy</code> value. The <code>updatedAt</code> value is set to
      * the current timestamp.
      */
-    @PreUpdate
-    public void beforeUpdate() {
-        String username = RequestContext.getUsername();
-        if (username == null) {
-            throw new IllegalArgumentException(
-                    "Cannot update a TransactionalEntity without a username "
-                            + "in the RequestContext for this thread.");
-        }
-        setUpdatedBy(username);
-
-        setUpdatedAt(new DateTime());
-    }
+//    @PreUpdate
+//    public void beforeUpdate() {
+//        String username = RequestContext.getUsername();
+//        if (username == null) {
+//            throw new IllegalArgumentException(
+//                    "Cannot update a TransactionalEntity without a username "
+//                            + "in the RequestContext for this thread.");
+//        }
+//        setUpdatedBy(username);
+//
+//        setUpdatedAt(new DateTime());
+//    }
 
     /**
      * Determines the equality of two TransactionalEntity objects. If the

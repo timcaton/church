@@ -1,18 +1,28 @@
 package org.stpaul.web.api;
 
+import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.stpaul.model.ChurchMember;
 import org.stpaul.service.ChurchMemberService;
 
-/**
- * Created by tjc4h on 3/10/2017.
- */
+import java.util.List;
+
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
+@Api
+@RestController
+@RequestMapping("/api/churchMember")
 public class ChurchMemberController {
+
+    @Autowired
+    private ChurchMemberService churchMemberService;
 
     @RequestMapping(
             value = "/{id}",
@@ -24,5 +34,13 @@ public class ChurchMemberController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return ResponseEntity.ok(churchMember);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ChurchMember>> getChurchMembers() {
+        List<ChurchMember> churchMembers = ChurchMemberService.findAll();
+        return ResponseEntity.ok(churchMembers);
     }
 }

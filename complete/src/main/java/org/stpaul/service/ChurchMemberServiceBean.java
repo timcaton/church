@@ -23,8 +23,8 @@ public class ChurchMemberServiceBean implements ChurchMemberService {
         return null;
     }
 
-    @Override
-    public ChurchMember findChurchMemberById(Long id) {
-        return null;
-    }
+//    @Override
+//    public ChurchMember findChurchMemberById(Long id) {
+//        return null;
+//    }
 }
