@@ -14,20 +14,22 @@ import javax.validation.constraints.Size;
 public class ChurchMember extends TransactionalEntity {
 
         @Column(name = "FIRST_NAME")
+        //@NotNull
         private String firstName;
 
         @Column(name = "MIDDLE_NAME")
         private String middleName;
 
         @Column(name = "LAST_NAME")
+        //@NotNull
         private String lastName;
 
         @Column(name = "BAPTISM_ID")
-        @NotNull
+        //@NotNull
         private Long baptismId;
 
         @Column(name = "MARRIAGE_ID")
-        @NotNull
+        //@NotNull
         private Long marriageId;
 
         @Column(name = "FUNERAL_ID")
@@ -52,63 +54,63 @@ public class ChurchMember extends TransactionalEntity {
         private Long communionId;
 
         @Column(name = "DOB")
-        @NotNull
+        //@NotNull
         private String dob;
 
         @Column(name = "GENDER")
-        @NotNull
+        //@NotNull
         private String gender;
 
         @Column(name = "NICKNAME")
-        @NotNull
+        //@NotNull
         private String nickname;
 
         @Column(name = "TITLE")
-        @NotNull
+       //@NotNull
         private String title;
 
         @Column(name = "ETHNICITY")
-        @NotNull
+        //@NotNull
         private String ethnicity;
 
         @Column(name = "SEQUENCE_IN_HOUSEHOLD")
-        @NotNull
+        //@NotNull
         private Long sequenceInHousehold;
 
         @Column(name = "COUNTRY")
-        @NotNull
+        //@NotNull
         private String country;
 
         @Column(name = "STATE")
-        @NotNull
+        //@NotNull
         private String state;
 
         @Column(name = "CITY")
-        @NotNull
+        //@NotNull
         private String city;
 
         @Column(name = "ZIP_CODE")
-        @NotNull
+        //@NotNull
         private Long zipCode;
 
         @Column(name = "ADDRESS")
-        @NotNull
+        //@NotNull
         private String address;
 
         @Column(name = "CARRIER_DATE")
-        @NotNull
+        //@NotNull
         private String carrierDate;
 
         @Column(name = "Email")
-        @NotNull
+        //@NotNull
         private String email;
 
         @Column(name = "STATUS")
-        @NotNull
+        //@NotNull
         private String status;
 
         @Column(name = "RECEIVED_BY")
-        @NotNull
+        //@NotNull
         private String receivedBy;
 
     public String getFirstName() {

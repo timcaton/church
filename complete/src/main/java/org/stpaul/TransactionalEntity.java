@@ -39,8 +39,8 @@ public class TransactionalEntity implements Serializable {
      * A secondary unique identifier which may be used as a reference to this
      * entity by external systems.
      */
-    @NotNull
-    private String referenceId = UUID.randomUUID().toString();
+//    @NotNull
+//    private String referenceId = UUID.randomUUID().toString();
 
     /**
      * The entity instance version used for optimistic locking.
@@ -79,13 +79,13 @@ public class TransactionalEntity implements Serializable {
         this.id = id;
     }
 
-    public String getReferenceId() {
-        return referenceId;
-    }
-
-    public void setReferenceId(String referenceId) {
-        this.referenceId = referenceId;
-    }
+//    public String getReferenceId() {
+//        return referenceId;
+//    }
+//
+//    public void setReferenceId(String referenceId) {
+//        this.referenceId = referenceId;
+//    }
 
     public Integer getVersion() {
         return version;

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.stpaul.BaseController;
 import org.stpaul.model.ChurchMember;
 import org.stpaul.service.ChurchMemberService;
 
@@ -19,7 +20,7 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 @Api
 @RestController
 @RequestMapping("/api/churchMember")
-public class ChurchMemberController {
+public class ChurchMemberController extends BaseController {
 
     @Autowired
     private ChurchMemberService churchMemberService;
@@ -29,7 +30,7 @@ public class ChurchMemberController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ChurchMember> getChurchMemberById(@PathVariable("id") Long id) {
-        ChurchMember churchMember = ChurchMemberService.findById(id);
+        ChurchMember churchMember = churchMemberService.findById(id);
         if (churchMember == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -40,7 +41,7 @@ public class ChurchMemberController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ChurchMember>> getChurchMembers() {
-        List<ChurchMember> churchMembers = ChurchMemberService.findAll();
+        List<ChurchMember> churchMembers = churchMemberService.findAll();
         return ResponseEntity.ok(churchMembers);
     }
 }
